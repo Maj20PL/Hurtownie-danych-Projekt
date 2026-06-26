@@ -79,7 +79,7 @@ if __name__ == "__main__":
     # 5. Główna pętla treningowa
     EPOCHS = 30
     best_loss = float('inf')
-    save_path = "najlepszy_model_oko.pth"
+    save_path = "najlepszy_model_segmentacji_oko.pth"
 
     print(f"\n--- ROZPOCZYNAM TRENING ({EPOCHS} EPOK) ---")
 

@@ -1,0 +1,9 @@
+# Ścieżki do folderów treningowych
+train: ./dataset/images/train
+val: ./dataset/images/train
+
+# Liczba klas (Źrenica, Tęczówka, Twardówka, Skóra)
+nc: 4
+
+# Nazwy klas
+names: ['zrenica', 'teczowka', 'twardowka', 'skora']
