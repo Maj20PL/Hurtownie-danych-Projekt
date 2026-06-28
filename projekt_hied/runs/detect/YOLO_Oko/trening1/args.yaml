@@ -1,11 +1,11 @@
 task: detect
 mode: train
 model: yolov8n.pt
-data: oko.yaml
-epochs: 50
+data: trening_oko.yaml
+epochs: 30
 time: null
 patience: 100
-batch: 15
+batch: 20
 imgsz: 512
 save: true
 save_period: -1
@@ -13,7 +13,7 @@ cache: false
 device: cpu
 workers: 8
 project: YOLO_Oko
-name: trening1
+name: trening1-4
 exist_ok: false
 pretrained: true
 optimizer: auto
@@ -109,4 +109,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: tracktrack.yaml
-save_dir: C:\Users\Majew\Desktop\studia_projekty\projekt_hied\runs\detect\YOLO_Oko\trening1
+save_dir: C:\Users\Majew\Desktop\studia_projekty\projekt_hied\runs\detect\YOLO_Oko\trening1-4
