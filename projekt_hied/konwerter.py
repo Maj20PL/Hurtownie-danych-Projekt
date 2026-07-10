@@ -40,7 +40,7 @@ def convert_labelme_json_to_mask(json_dir, output_dir):
         mask = np.zeros((h, w), dtype=np.uint8)
         shapes = data.get("shapes", [])
 
-        # Sortowanie kształtów według z-index (DRAW_ORDER)
+        # Sortowanie kształtów według z-index
         shapes_sorted = sorted(
             shapes,
             key=lambda x: DRAW_ORDER.get(x["label"].lower(), 0)

@@ -1,7 +1,6 @@
 import os
 import cv2
 import torch
-import numpy as np
 from torch.utils.data import Dataset, DataLoader
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
@@ -10,7 +9,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 
-# 1. Wczytanie danych
+# Wczytanie danych
 class EyeSegmentationDataset(Dataset):
     def __init__(self, images_dir, masks_dir, transform=None):
         self.images_dir = images_dir
@@ -45,7 +44,7 @@ class EyeSegmentationDataset(Dataset):
 
 
 if __name__ == "__main__":
-    # 2. Transformacje
+    # Transformacje
     train_transform = A.Compose([
         A.Resize(height=512, width=512),
         A.HorizontalFlip(p=0.5),
@@ -60,12 +59,12 @@ if __name__ == "__main__":
         transform=train_transform
     )
 
-    # 3. Przygotowanie narzędzi
+    # Przygotowanie narzędzi
     train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True, num_workers=0)
     device = torch.device("cpu")
     print(f"Trening uruchomiony na urządzeniu: {device}")
 
-    # 4. Inicjalizacja modelu
+    # Inicjalizacja modelu
     model = smp.Unet(
         encoder_name="resnet34",
         encoder_weights="imagenet",
@@ -76,8 +75,8 @@ if __name__ == "__main__":
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    # 5. Główna pętla treningowa
-    EPOCHS = 30
+    # Główna pętla treningowa
+    EPOCHS = 60
     best_loss = float('inf')
     save_path = "najlepszy_model_segmentacji_oko.pth"
 
