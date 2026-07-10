@@ -92,7 +92,7 @@ python model_segmentacji.py
 ```
 
 ## 🎓 Autorzy
-Patryk Majewski 198021
-Łukasz Zych 197842
-Wiktor Gnaczyński 198387
+- Patryk Majewski 198021
+- Łukasz Zych 197842
+- Wiktor Gnaczyński 198387
 
