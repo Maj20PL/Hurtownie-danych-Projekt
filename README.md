@@ -37,31 +37,33 @@ Zdjęcia przed trafieniem do sieci segmentującej są normalizowane oraz przeska
 - Wykorzystano framework YOLO (prawdopodobnie w wersji YOLOv8).
 - Model został nauczony wykrywania 4 klas na podstawie wygenerowanych na bazie masek boxów (skrypt `generuj_boxy.py`).
 - Konfiguracja dla treningu YOLO znajduje się w `trening_oko.yaml`.
-- Kod związany z wykrywaniem obiektów: `modelu_wykrywania.py` i `testowanie_modelu_wykrywania_oka.py`.
+- Kod związany z wykrywaniem obiektów: `trening_wykrywania.py` i `modelu_wykrywania.py`.
 
 ## 📁 Struktura projektu
 ```text
 projekt_hied/
 │
 ├── dataset/                         
-│   ├── images/
-│   ├── json/   
+    ├── images/
+    ├── json/   
     ├── lables/
     ├── masks/      
-│   └── test/                        
-│
-├── trening_segmentacji.py           # Skrypt trenujący model U-Net (smp)
+    └── test/
+├── runs/
+    ├── detect/
+       └── YOLO_Oko/                 # Miejsce zapisu treningow YOLO do detekcji oka
+├── wyniki_wykrywania/               # Folder zawiera opisany obraz wynikowy detekcji                    
+├── trening_segmentacji.py           # Skrypt trenujący model U-Net
 ├── model_segmentacji.py             # Kod ewaluacji i inferencji modelu segmentacji
 ├── trening_oko.yaml                 # Plik konfiguracyjny dla modelu wykrywania (YOLO)
-├── modelu_wykrywania.py             # Skrypt trenujący model YOLO
-├── testowanie_modelu_wykrywania_oka.py # Skrypt testujący model YOLO na nowych zdjęciach
+├── trening_wykrywania.py            # Skrypt trenujący model YOLO
+├── modelu_wykrywania.py         # Skrypt testujący model YOLO na nowych zdjęciach
 │
 ├── generuj_boxy.py                  # Skrypt konwertujący maski na Bounding Boxy dla YOLO
 ├── konwerter.py                     # Skrypty pomocnicze przy przetwarzaniu danych
 │
 ├── najlepszy_model_segmentacji_oko.pth # Zapisane wagi wytrenowanego modelu segmentacji
-├── requirements.txt                 # Lista zależności i bibliotek Pythona
-└── README.md                        # Niniejszy plik
+└── requirements.txt                 # Lista zależności i bibliotek Pythona
 ```
 
 ## 🚀 Uruchomienie
@@ -81,12 +83,16 @@ python trening_segmentacji.py
 ### Inferencja i testowanie
 Dla wykrywania (YOLO):
 ```bash
-python testowanie_modelu_wykrywania_oka.py
+python trening_wykrywania.py
+python modelu_wykrywania.py
 ```
 Dla segmentacji:
 ```bash
 python model_segmentacji.py
 ```
 
-## 🎓 Autor
-Projekt zaliczeniowy. Maski danych treningowych zostały wygenerowane i sklasyfikowane ręcznie w programie LabelMe, a następnie poddane obróbce z użyciem bibliotek do widzenia komputerowego.
+## 🎓 Autorzy
+Patryk Majewski 198021
+Łukasz Zych 197842
+Wiktor Gnaczyński 198387
+
