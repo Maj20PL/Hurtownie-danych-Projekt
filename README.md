@@ -2,10 +2,10 @@
 
 ## 👁️ O projekcie
 Celem projektu jest automatyczne wykrywanie oraz segmentacja struktur anatomicznych ludzkiego oka na podstawie zdjęć. Narzędzie potrafi lokalizować oraz precyzyjnie wydzielać następujące struktury:
-* **Źrenica** (zrenica)
-* **Tęczówka** (teczowka)
-* **Twardówka** (twardowka)
-* **Skóra / Powieki** (skora)
+* **Źrenica**
+* **Tęczówka**
+* **Twardówka**
+* **Skóra / Powieki**
 
 Projekt składa się z dwóch niezależnych i uzupełniających się modułów wykorzystujących głębokie uczenie maszynowe (Deep Learning):
 1. **Model detekcji (YOLOv8)** – do tworzenia ramek ograniczających (bounding boxes) wokół poszczególnych struktur.
